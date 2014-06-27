@@ -1,12 +1,15 @@
 # Rack::Upcasebody
 
-TODO: Write a gem description
+Rackミドルウェアの実装サンプルです。
+
+
+（参考） http://www.amazon.co.jp/dp/4774165166
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'rack-upcasebody'
+    gem 'rack-upcasebody', :git => "https://github.com/murayama333/rack-upcasebody.git"
 
 And then execute:
 
@@ -14,11 +17,23 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rack-upcasebody
+    ($ gem install specific_install)
+    $ gem specific_install -l 'https://github.com/murayama333/rack-upcasebody.git'
+    
+（参考） http://qiita.com/yuku_t/items/5ab4fbe404b718999a35
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+require "rack/upcasebody"
+App = lambda do |env|
+  [200, {"Content-Type" => "text/html"}, ["Hello world!"]]
+end
+
+use Rack::Upcasebody
+run App
+```
 
 ## Contributing
 
